@@ -53,7 +53,6 @@ function renderCard({ word, translation, example }) {
     card.querySelector("#card-back p span").textContent = example || "Default Example";
 
 }
-
 function updateButtons() {
     prevButton.disabled = idx === 0;
     nextButton.disabled = idx === words.length - 1;
