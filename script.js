@@ -76,11 +76,10 @@ nextButton.addEventListener("click", () => {
 });
 
 testButton.addEventListener("click", () => {
-    // Логика перехода в режим тестирования
-    // ...
+    
 });
 
-// Вызов функции для подготовки начальной карточки
+
 prepareCard(words[idx]);
 
 updateButtons();
