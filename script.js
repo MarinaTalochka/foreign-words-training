@@ -55,7 +55,7 @@ function prepareCard({ word, translation, example }) {
 
 function renderCard({ word, translation, example }) {
     card.querySelector("#card-front h1").textContent = word || "Default Word";
-    card.querySelector("#card-back h1").textContent = translation ||  "Default Translation";
+    card.querySelector("#card-back h1").textContent = translation || "Default Translation";
     card.querySelector("#card-back p span").textContent = example || "Default Example";
 
 }
@@ -113,14 +113,14 @@ let firstCardIndex = null;
 
 // Обработчик клика на карточке
 function handleCardClick(event) {
-   
+
     const clickedCard = event.target;
     if (clickedCard.classList.contains('.fade-out') || !clickedCard.classList.contains('card')) {
         return
     }
     const clickedIndex = parseInt(clickedCard.dataset.index);
-   
-   
+
+
     if (firstCardIndex == null) {
         // Первая выбранная карточка
         firstCardIndex = clickedIndex;
@@ -131,8 +131,8 @@ function handleCardClick(event) {
         const firstCard = document.querySelector(`[data-index='${firstCardIndex}']`);
 
         const wordObject = words.find(word => word.word === firstCard.textContent || word.translation === firstCard.textContent);
-        
-        if(firstCard.textContent !== clickedCard.textContent) {
+
+        if (firstCard.textContent !== clickedCard.textContent) {
             if (wordObject.translation === clickedCard.textContent || wordObject.word === clickedCard.textContent) {
                 // Пара подобрана верно
                 firstCard.classList.add('fade-out');
@@ -140,7 +140,7 @@ function handleCardClick(event) {
                 clickedCard.classList.add('correct', 'fade-out');
                 clickedCard.style.pointerEvents = "none";
                 firstCardIndex = null;
-                
+
             } else {
                 // Пара подобрана неверно
                 clickedCard.classList.add('wrong');
@@ -148,7 +148,7 @@ function handleCardClick(event) {
                     clickedCard.classList.remove('wrong');
                     firstCard.classList.remove('correct');
                     firstCardIndex = null;
-    
+
                 }, 500);
             }
         }
@@ -160,7 +160,7 @@ function handleCardClick(event) {
         setTimeout(() => {
             alert('Поздравляем! Вы успешно завершили проверку знаний.');
         }, 700);
-        
+
     }
 }
 
